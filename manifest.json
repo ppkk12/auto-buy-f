@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "FREEアイテム一括取得(x:4z5pk)",
+  "version": "1.1.0",
+  "description": "アイテムショップのFREEアイテムを並列一括取得(discord:z7qoh)",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.fortnite.com/*",
+        "https://fortnite.com/*",
+        "https://*.epicgames.com/*",
+        "https://*.unrealengine.com/*"
+      ],
+      "js": [
+        "src/netlog.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://www.fortnite.com/*item-shop*",
+        "https://fortnite.com/*item-shop*"
+      ],
+      "js": [
+        "src/interceptor.js",
+        "src/ui.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ]
+}
